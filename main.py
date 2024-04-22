@@ -27,6 +27,6 @@ new_reviews.append(thought)
 
 X_new = vectorize.transform(new_reviews)
 predicts = classifier.predict(X_new)
-results = [str(element) for element in ([(review_n, score_s)  for review_n, score_s in zip(new_reviews, predicts)])]
+results = [str(element) for element in ([(review_n, 'positive' if score_s == 1 else 'negative')  for review_n, score_s in zip(new_reviews, predicts)])]
 results = '\n'.join(results)
 print(f"\tResults: \n{results}")
